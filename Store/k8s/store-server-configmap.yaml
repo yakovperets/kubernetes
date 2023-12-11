@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: store-server-configmap
+  namespace: store
+data:
+  MODE: "production"
+  BNR_BASE_URL: "http://bnr-server-service.banners.svc.cluster.local"
+  OMS_BASE_URL: "http://oms-server-service.oms.svc.cluster.local"
+  ERP_BASE_URL: "http://erp-server-service.erp.svc.cluster.local"
+  MONGO_URI: "mongodb://root:password@my-mongodb-release-0.my-mongodb-release-headless.store.svc.cluster.local:27017,my-mongodb-release-1.my-mongodb-release-headless.store.svc.cluster.local:27017,my-mongodb-release-2.my-mongodb-release-headless.store.svc.cluster.local:27017"
+  USER_EMAIL: store.app.class5@gmail.com
+  USER_PASS: Store-pass1
+  CLIENT_ID: 1044052224045-vonv7v5it54l67u4o6fvt23cksk1it7o.apps.googleusercontent.com
+  CLIENT_SECRET: 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
+  REFRESH_TOKEN: 1//049UK4BgS9P3FCgYIARAAGAQSNwF-L9IrLOop8KxKesWtMrCWw95LWfulUrvMYQ-nMqRLB5gBSEp9xJGHJQWJaQCxEuV3LUR6ubQ
+  ACCESS_TOKEN: ya29.a0AfB_byCMrJTkboiA-u7H9w_ZAo_Ar6xV-A_8nTwNz4TTwPf3gkex985SjtkhEFSA6-Lgl2bS8P4RA4U6VgA1LvvBX3FfaqOqGgg3saenYPatyvXhAeSSHEESNpTb1tTkoUGPhWXnyntrdC4M0-MUjSQiSNYMDrfO_hp9aCgYKAQ0SARASFQHGX2Mix71jgK9ssj9iU6KG_9iedw0171
+  JWT_SECRET: "SECRET"
+  PORT: "4000"

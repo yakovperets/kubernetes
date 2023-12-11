@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: banners-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    nginx.ingress.kubernetes.io/use-regex: "true"
+  namespace: banners # Set the namespace to "banners"
+spec:
+  rules:
+    - host: ae73adf0061dc4d49ab515bf812150d9-1090975536.eu-central-1.elb.amazonaws.com
+      http:
+        paths:
+          - path: /banners(/|$)(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: banners-client-service
+                port:
+                  number: 80
+          - path: /banners/api(/|$)(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: banners-server-service
+                port:
+                  number: 3000

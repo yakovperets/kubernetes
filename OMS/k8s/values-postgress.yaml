@@ -1,0 +1,12 @@
+global:
+  postgresql:
+    auth:
+      username: "postgres"
+      password: "root"
+      database: "users"
+    service:
+      name: "my-postgresql-service"
+      port: 5432
+    replication:
+      enabled: true
+      number_of_replicas: 1

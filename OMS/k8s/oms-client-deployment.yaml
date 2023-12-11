@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: oms-client-deployment
+  namespace: oms
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: oms-client
+  template:
+    metadata:
+      labels:
+        app: oms-client
+    spec:
+      containers:
+        - name: oms-client
+          image: staticaldust/oms-client:3.0.0
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: oms-client-configmap

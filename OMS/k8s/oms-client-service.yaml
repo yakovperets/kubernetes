@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: oms-client-service
+  namespace: oms
+spec:
+  selector:
+    app: oms-client
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80

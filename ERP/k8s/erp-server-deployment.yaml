@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: erp
+  name: erp-server-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: erp-server
+  template:
+    metadata:
+      labels:
+        app: erp-server
+    spec:
+      containers:
+        - name: erp-server
+          image: staticaldust/erp-server:3.0
+          ports:
+            - containerPort: 6000
+          envFrom:
+            - configMapRef:
+                name: erp-server-configmap

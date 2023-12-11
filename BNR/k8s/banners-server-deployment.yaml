@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: banners
+  name: banners-server-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: banners-server
+  template:
+    metadata:
+      labels:
+        app: banners-server
+    spec:
+      containers:
+        - name: banners-server
+          image: staticaldust/banners-server:3.0.0
+          ports:
+            - containerPort: 3000
+          envFrom:
+            - configMapRef:
+                name: banners-server-configmap

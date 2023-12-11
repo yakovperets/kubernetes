@@ -1,0 +1,24 @@
+# apiVersion: v1
+# kind: ConfigMap
+# metadata:
+#   name: erp-server-configmap
+#   namespace: erp
+# data:
+#   APP_ENV: "production"
+#   LOG_LEVEL: "info"
+#   JWT_SECRET: "sour_secret_key_team_3"
+#   MONGODB_URI: "mongodb://root:password@my-mongodb-0.my-mongodb-headless.erp:27017,my-mongodb-1.my-mongodb-headless.erp:27017,my-mongodb-2.my-mongodb-headless.erp:27017/mydatabase?replicaSet=my-replica-set"
+#   POSTGRESQL_CONNECTION_STRING: "postgresql://postgres:root@my-postgresql-service:5432/users"
+#   PORT: 6000
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: erp-server-configmap
+  namespace: erp
+data:
+  APP_ENV: "production"
+  LOG_LEVEL: "info"
+  JWT_SECRET: "sour_secret_key_team_3"
+  MONGODB_URI: "mongodb://root:password@my-mongodb-release-0.my-mongodb-release-headless.erp.svc.cluster.local:27017,my-mongodb-release-1.my-mongodb-release-headless.erp.svc.cluster.local:27017,my-mongodb-release-2.my-mongodb-release-headless.erp.svc.cluster.local:27017"
+  POSTGRESQL_CONNECTION_STRING: "postgresql://postgres:root@my-postgress-release-postgresql.erp.svc.cluster.local:5432/users"
+  PORT: "6000"

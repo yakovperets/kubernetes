@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: erp-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    nginx.ingress.kubernetes.io/use-regex: "true"
+  namespace: erp # Set the namespace to "erp"
+spec:
+  rules:
+    - host: ae73adf0061dc4d49ab515bf812150d9-1090975536.eu-central-1.elb.amazonaws.com
+      http:
+        paths:
+          - path: /erp/api(/|$)(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: erp-server-service
+                port:
+                  number: 6000
+          - path: /erp(/|$)(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: erp-client-service
+                port:
+                  number: 80

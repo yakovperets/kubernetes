@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: banners-client-deployment
+  namespace: banners
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: banners-client
+  template:
+    metadata:
+      labels:
+        app: banners-client
+    spec:
+      containers:
+        - name: banners-client
+          image: staticaldust/banners-client:3.0.0
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: banners-client-configmap

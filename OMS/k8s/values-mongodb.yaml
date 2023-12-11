@@ -1,0 +1,11 @@
+architecture: replicaset
+auth:
+  namespace: oms
+  enabled: true
+  rootUser: root
+  rootPassword: "password"
+replicaCount: 3
+persistence:
+  size: 1Gi
+arbiter:
+  enabled: false

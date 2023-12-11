@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: erp-client-configmap
+  namespace: erp
+data:
+  VITE_BASE_URL: "http://ae73adf0061dc4d49ab515bf812150d9-1090975536.eu-central-1.elb.amazonaws.com/erp/api"

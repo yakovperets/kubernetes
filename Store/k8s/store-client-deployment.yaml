@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: store-client-deployment
+  namespace: store
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: store-client
+  template:
+    metadata:
+      labels:
+        app: store-client
+    spec:
+      containers:
+        - name: store-client
+          image: staticaldust/store-client:3.0.1
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: store-server-configmap

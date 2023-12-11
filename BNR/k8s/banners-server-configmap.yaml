@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: banners-server-configmap
+  namespace: banners
+data:
+  APP_ENV: "production"
+  LOG_LEVEL: "info"
+  GMAIL_USERNAME: "adbannerservice@gmail.com"
+  GMAIL_APP_PASSWORD: "amcmuslnemzppxbb"
+  POSTGRESQL_CONNECTION_STRING: "postgresql://postgres:root@my-postgres-release-postgresql.banners.svc.cluster.local:5432/users"
+  BNR_BASE_URL: "http://banners-server-service.banners.svc.cluster.local"
+  STORE_BASE_URL: "http://store-server-service.store.svc.cluster.local"
+  OMS_BASE_URL: "http://oms-server-service.oms.svc.cluster.local"
+  ERP_BASE_URL: "http://erp-server-service.erp.svc.cluster.local"
+  CLIENT_STORE_URL: "http://aa6fa525644e14bc6a2365d099504e2c-1084886360.eu-central-1.elb.amazonaws.com/store"
+  JWT_SECRET: "dsREetdewizkiSiArmCpAQ"
+  MONGODB_URI: "mongodb://root:password@my-mongodb-release-0.my-mongodb-release-headless.banners.svc.cluster.local:27017,my-mongodb-release-1.my-mongodb-release-headless.banners.svc.cluster.local:27017,my-mongodb-release-2.my-mongodb-release-headless.banners.svc.cluster.local:27017"
+  PORT: "3000"
